@@ -10,8 +10,6 @@ for i in list:
 d = np.sqrt(b / len(list))
 e = b / len(list)
 f = b / (len(list) - 1) 
-
-
 print(f'Несмещенная диссперсия = {round(f, 2)}')
 print(f'Смещенная диссперсия = {round(e, 2)}')
 print(f'среднее квадратичное отклонение = {round(d, 2)}')
