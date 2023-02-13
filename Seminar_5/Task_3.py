@@ -8,13 +8,9 @@ import numpy as np
 V = ([202, 203, 199, 197, 195, 201, 200, 204, 194, 190])
 alfa = 0.01
 n = 10
-L = -2.6
-R = 2.58
-# Ct = stats.t.ppf(1 - alfa/2, n -1)
+R = stats.t.ppf(1 - alfa/2, n - 1)
+L = stats.t.ppf(alfa/2, n - 1)
 Ct = stats.ttest_1samp(V, len(V))
 print(Ct)
-# print(Z)
-# if Z > R or Z < L:
-#     print('Утверждение продавца не верно')
-# else:
-#     print('Утверждение продавца верно')
+print(L, R)
+print('После проведения теста. Выявлено, что P - value находится в правой критической зоне. Вывод утверждение продавца не верно')

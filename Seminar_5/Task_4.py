@@ -6,8 +6,8 @@ from scipy import stats
 x = np.array([172, 177, 158, 170, 178,175, 164, 160, 169])
 y = np.array([173, 175, 162, 174, 175, 168, 155, 170, 160])
 alfa = 0.05
-t1 = stats.t.ppf(alfa, df = 2 * (len(x) - 1))
-t2 = stats.t.ppf(1 - alfa, df = 2 * (len(y) - 1))
+t1 = stats.t.ppf(alfa/2, df = 2 * (len(x) - 1))
+t2 = stats.t.ppf(1 - alfa/2, df = 2 * (len(y) - 1))
 f = stats.ttest_rel(x, y)
 print(f)
 print(t1, t2)
