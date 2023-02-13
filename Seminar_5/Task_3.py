@@ -10,7 +10,12 @@ alfa = 0.01
 n = 10
 R = stats.t.ppf(1 - alfa/2, n - 1)
 L = stats.t.ppf(alfa/2, n - 1)
-Ct = stats.ttest_1samp(V, len(V))
+Ct = stats.ttest_1samp(V, 200)
 print(Ct)
+t = (np.mean(V) - 200) / ((np.std(V, ddof= 1)) / (np.sqrt(len(V))))
+if t < R or t > L:
+    print('Утверждение продавца верно')
+else:
+    print('Утверждение продавца не верно')
 print(L, R)
-print('После проведения теста. Выявлено, что P - value находится в правой критической зоне. Вывод утверждение продавца не верно')
+print('После проведения теста. Выявлено, что P - value находится в правой критической зоне. Вывод утверждение продавца верно')
