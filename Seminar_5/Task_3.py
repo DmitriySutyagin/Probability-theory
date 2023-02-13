@@ -3,22 +3,18 @@
 # 202, 203, 199, 197, 195, 201, 200, 204, 194, 190.
 # Известно, что их веса распределены нормально.
 # Верно ли утверждение продавца, если учитывать, что доверительная вероятность равна 99%? (Провести двусторонний тест.)
+from scipy import stats
 import numpy as np
 V = ([202, 203, 199, 197, 195, 201, 200, 204, 194, 190])
-Sred = 200
+alfa = 0.01
 n = 10
 L = -2.6
 R = 2.58
-a = sum(V)/len(V)
-S =[]
-for i in range(len(V)):
-    S.append((V[i] -a)**2)
-b = sum(S)
-D = (b / (len(V )- 1))
-sigma = np.sqrt(D)
-Z = (a - Sred) / (sigma / np.sqrt(n)) 
-print(Z)
-if Z > R or Z < L:
-    print('Утверждение продавца не верно')
-else:
-    print('Утверждение продавца верно')
+# Ct = stats.t.ppf(1 - alfa/2, n -1)
+Ct = stats.ttest_1samp(V, len(V))
+print(Ct)
+# print(Z)
+# if Z > R or Z < L:
+#     print('Утверждение продавца не верно')
+# else:
+#     print('Утверждение продавца верно')
