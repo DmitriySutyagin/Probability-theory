@@ -13,7 +13,3 @@ if Z > alfa:
     print('Гипотеза H0 не верна')
 else:
     print('Гипотеза H0 верна')    
-
-
-
-# print(Z)
