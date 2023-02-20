@@ -9,6 +9,6 @@ Delta = np.mean(b) - np.mean(a)
 t = stats.t.ppf(0.975, len(a) + len(b) - 2)
 D = (np.var(a, ddof=1) + np.var(b, ddof=1)) / 2
 SE = np.sqrt(D / len(a) + D / len(b))
-L = Delta - t * SE    # Нижняя граница
-R = Delta + t * SE    # Верхняя граница
+L = Delta - t * SE                                             # Нижняя граница
+R = Delta + t * SE                                             # Верхняя граница
 print(f'Наибольшее число значений близких к разности среднего роста будут находиться в доверительном интервале от {round(L, 4)} до {round(R, 4)}')
