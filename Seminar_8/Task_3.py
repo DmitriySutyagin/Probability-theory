@@ -6,9 +6,10 @@ import numpy as np
 from scipy import stats
 D = 25
 n = 27
+alfa = 0.05
 Sred = 174.2
-t = stats.t.ppf(0.975, n -1)
+Z = stats.norm.ppf(1-alfa/2)
 SE = np.sqrt(D / n)
-L = Sred - t * SE
-R = Sred + t * SE
+L = Sred - Z * SE
+R = Sred + Z * SE
 print(f'Доверительный интервал от {L} до {R}')
