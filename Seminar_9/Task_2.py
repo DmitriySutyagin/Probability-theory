@@ -10,7 +10,6 @@ n = (len(x) + len(y)) / 2
 B1 = 0.025
 def mse_(B1, y, x, n):
     return np.sum((B1*x-y)**2)/n
-
 alfa = 1e-6
 for i in range(12000):
     B1 -= alfa * (2/n) * np.sum((B1*x-y)*x)/n
