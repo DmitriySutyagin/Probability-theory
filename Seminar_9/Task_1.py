@@ -11,18 +11,26 @@ from sklearn.linear_model import LinearRegression
 
 x = np.array([35, 45, 190, 200, 40, 70, 54, 150, 120, 110])
 y = np.array([401, 574, 874, 919, 459, 739, 653, 902, 746, 832])
- 
 n = (len(x) + len(y)) / 2
 
 b1 = (n*np.sum(x*y) - np.sum(x)*np.sum(y))/ (n*np.sum(x**2) - np.sum(x)**2)
 b0 =  np.mean(y) - b1 * np.mean(x)
 y_pred = b0 + b1 * x
+y_pred_bez = b1 * x
 
 model = LinearRegression()
 x = x.reshape(len(x), 1)
 regres = model.fit(x, y)
 print(f'Коэффицент корреляции равен {regres.coef_}')
-print(f'Предиктовое значение y равно {y_pred}')
+print(f'Значение регрессии с интерсептом равно {y_pred}')
+print(f'Значение регрессии без интерсептом равно {y_pred_bez}')
 print(f'Значение b1 равно {b1}')
 print(f'Значение b0 равно {b0}')
 print(f'Значение интерсепта равно {regres.intercept_}')
+plt.scatter(x, y)
+plt.plot(x, y_pred)
+plt.plot(x, y_pred_bez)
+plt.title('Зависимость кредитного скоринга от заработной платы')
+plt.xlabel('Зарплата')
+plt.ylabel('Кредитный скоринг')
+plt.show()
