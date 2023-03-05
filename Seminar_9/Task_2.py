@@ -12,7 +12,7 @@ def mse_(B1, y, x, n):
     return np.sum((B1*x-y)**2)/n
 alfa = 1e-6
 for i in range(12000):
-    B1 -= alfa * (2/n) * np.sum((B1*x-y)*x)/n
+    B1 -= alfa * (2/n) * np.sum((B1*x-y)*x)
     if i % 100 == 0:
         print(f'Iterator = {i}, B1 = {B1}, mse = {mse_(B1, y, x, n)}')
 print('Делаем вывод: модель рабочая т.к. значени B1 перестали изменятся на 11300-ой интерации')
